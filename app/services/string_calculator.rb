@@ -4,7 +4,7 @@ class StringCalculator
     delimiter = /,|\n/
     if numbers.start_with?("//")
       parts = numbers.split("\n")
-      delimiter = Regexp.escape(parts[0][2..])
+      delimiter = Regexp.escape(parts[0][2..]).gsub('\\', '')
       numbers = parts[1]
     end
 
