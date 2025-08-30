@@ -12,6 +12,7 @@ class StringCalculator
     message = check_for_negatives(nums)
     return message if message.present?
 
+    nums = check_for_valid_numbers(nums)
     nums.sum
   end
 
@@ -20,5 +21,9 @@ class StringCalculator
   def self.check_for_negatives(nums)
     negatives = nums.select { |n| n < 0 }
     return "negative numbers not allowed #{negatives.join(',')}" if negatives.any?
+  end
+
+  def self.check_for_valid_numbers(nums)
+    nums.select { |n| n <= 1000 }
   end
 end
